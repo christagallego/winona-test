@@ -17,6 +17,10 @@ onMounted(() => {
   <ul class="list bg-base-100 rounded-box shadow-md">
     <li class="p-4 pb-2 text-xs opacity-60 tracking-wide">Available Doctors</li>
 
+    <li v-if="store.isLoading" class="p-4 flex justify-center items-center">
+      <span class="loading loading-spinner loading-lg text-ghost"></span>
+    </li>
+
     <Doctor v-for="doctor in store.doctors" :key="doctor.id" :doctor="doctor" />
   </ul>
 </template>

@@ -4,16 +4,19 @@ import type { Doctor } from '../types/Doctors'
 interface DoctorState {
   doctors: Doctor[]
   selectedDoctor: Doctor | null
+  isLoading: boolean
 }
 
 export const useDoctorStore = defineStore('doctor', {
   state: (): DoctorState => ({
     doctors: [],
     selectedDoctor: null,
+    isLoading: false
   }),
   actions: {
     async fetchDoctors() {
       try {
+        this.isLoading = true
         const response = await fetch('/api/doctors', {
           headers: {
             Authorization: 'Bearer dGhpcyBpcyBzdXBlciBzYWZlLiBqdXN0IHRydXN0IG1lLiBoZWhl'
@@ -25,6 +28,7 @@ export const useDoctorStore = defineStore('doctor', {
         console.error('Error fetching doctors:', err.message)
         throw err
       } finally {
+        this.isLoading = false
         console.log('Doctors fetched:', this.doctors)
       }
     },
