@@ -6,7 +6,7 @@ import Doctor from './DoctorsListItem.vue'
 const store = useDoctorStore()
 
 onMounted(() => {
-  if (store.doctors.length === 0) {
+  if (!store.doctors.length) {
     store.fetchDoctors().catch((err: Error) => {
       console.error(err.message)
     })
