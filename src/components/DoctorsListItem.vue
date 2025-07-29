@@ -1,11 +1,5 @@
 <script setup lang="ts">
-import { useRouter, RouterLink } from 'vue-router'
-
-const router = useRouter()
-
-const goToDetails = () => {
-  router.push({ name: 'DoctorDetail', params: { id: '12' } })
-}
+import { RouterLink } from 'vue-router'
 </script>
 <template>
   <li class="list-row">
@@ -30,7 +24,7 @@ const goToDetails = () => {
       </button>
       <ul tabindex="0" class="menu dropdown-content z-[1] p-2 shadow bg-base-100 rounded-box w-32">
         <li>
-          <RouterLink :to="{ name: 'doctor-detail', params: { id: '12' } }"> Details </RouterLink>
+          <RouterLink :to="{ name: 'doctor-detail' }"> Details </RouterLink>
         </li>
       </ul>
     </div>
