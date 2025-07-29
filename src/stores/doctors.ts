@@ -1,14 +1,5 @@
 import { defineStore } from 'pinia'
-
-interface Doctor {
-  id: string
-  firstName: string
-  lastName: string
-  dob: string // ISO date string, e.g. "1968-12-13"
-  signedUpDate: string // ISO date string
-  state: string // e.g. "NY"
-  licenseActive: boolean
-}
+import type { Doctor } from '../types/Doctors'
 
 interface DoctorState {
   doctors: Doctor[]
@@ -18,7 +9,7 @@ interface DoctorState {
 export const useDoctorStore = defineStore('doctor', {
   state: (): DoctorState => ({
     doctors: [],
-    selectedDoctor: null
+    selectedDoctor: null,
   }),
   actions: {
     async fetchDoctors() {

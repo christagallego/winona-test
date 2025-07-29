@@ -17,7 +17,7 @@ import ThemeSwitcher from './components/ThemeSwitcher.vue'
       </div>
     </div>
 
-    <main class="flex-grow">
+    <main class="flex-grow p-4">
       <RouterView />
     </main>
 

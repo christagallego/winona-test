@@ -1,12 +1,20 @@
 <script setup lang="ts">
 import { RouterLink } from 'vue-router'
+import type { Doctor } from '../types/Doctors'
+import { computed } from 'vue'
+
+const props = defineProps<{ doctor: Doctor }>()
+
+const fullName = computed(() => {
+  return `Dr. ${props.doctor.firstName} ${props.doctor.lastName}`
+})
 </script>
 <template>
   <li class="list-row">
     <div></div>
     <div>
-      <div>Dr. Jeff Jefferson</div>
-      <div class="text-xs uppercase font-semibold opacity-60">TX</div>
+      <div>{{ fullName }}</div>
+      <div class="text-xs uppercase font-semibold opacity-60">{{ props.doctor.state }}</div>
     </div>
     <div class="dropdown dropdown-end">
       <button tabindex="0" role="button" class="btn btn-square btn-ghost">
