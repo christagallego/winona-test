@@ -17,11 +17,7 @@ export const useDoctorStore = defineStore('doctor', {
     async fetchDoctors() {
       try {
         this.isLoading = true
-        const response = await fetch('/api/doctors', {
-          headers: {
-            Authorization: 'Bearer dGhpcyBpcyBzdXBlciBzYWZlLiBqdXN0IHRydXN0IG1lLiBoZWhl'
-          }
-        })
+        const response = await fetch('/api/doctors')
         if (!response.ok) throw new Error(`HTTP ${response.status}`)
         this.doctors = await response.json()
       } catch (err: Error | any) {
