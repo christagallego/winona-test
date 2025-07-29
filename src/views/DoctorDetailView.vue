@@ -5,12 +5,16 @@ const store = useDoctorStore()
 const doctor = store.selectedDoctor ?? null
 
 const formatDate = (date: string) => {
-  const options: Intl.DateTimeFormatOptions = {
+  if (!date) return ''
+
+  const d = new Date(date)
+  if (isNaN(d.getTime())) return ''
+
+  return d.toLocaleDateString('en-US', {
     year: 'numeric',
     month: 'long',
     day: '2-digit'
-  }
-  return new Date(date).toLocaleDateString('en-US', options)
+  })
 }
 </script>
 
