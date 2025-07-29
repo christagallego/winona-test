@@ -34,12 +34,8 @@ const formatDate = (date: string) => {
       <p>
         Signed Up Date: <strong>{{ formatDate(doctor.signedUpDate) }}</strong>
       </p>
-      <p class="flex items-center gap-2">
-        Is license active:
-        <strong class="flex items-center gap-1">
-          <span v-if="doctor.licenseActive"> ✔️ Yes </span>
-          <span v-else> ❌ No </span>
-        </strong>
+      <p>
+        Is license active: <strong>{{ doctor.licenseActive ? 'Yes' : 'No' }}</strong>
       </p>
     </template>
     <template v-else>
