@@ -7,11 +7,11 @@ import ThemeSwitcher from './components/ThemeSwitcher.vue'
   <div class="min-h-screen flex flex-col">
     <div class="navbar bg-base-100 shadow-sm">
       <div class="flex-1">
-        <a class="btn btn-ghost text-xl">Dashboard</a>
+        <RouterLink to="/" class="btn btn-ghost text-xl">Dashboard</RouterLink>
       </div>
       <div class="flex-none">
         <ul class="menu menu-horizontal px-1">
-          <li><a>Doctors</a></li>
+          <li><RouterLink to="/">Doctors</RouterLink></li>
           <li><ThemeSwitcher /></li>
         </ul>
       </div>
