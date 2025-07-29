@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import type { Doctor } from '../types/Doctors'
+import type { Doctor } from '@/types/Doctors'
 
 interface DoctorState {
   doctors: Doctor[]

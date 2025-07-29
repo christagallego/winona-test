@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import { useRouter } from 'vue-router'
-import type { Doctor } from '../types/Doctors'
 import { computed } from 'vue'
-import { useDoctorStore } from '../stores/doctors'
+import type { Doctor } from '@/types/Doctors'
+import { useDoctorStore } from '@/stores/doctors'
 
-const store = useDoctorStore()
 const router = useRouter()
+const store = useDoctorStore()
 const props = defineProps<{ doctor: Doctor }>()
 
 const fullName = computed(() => {

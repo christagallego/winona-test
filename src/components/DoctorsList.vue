@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { onMounted } from 'vue'
-import { useDoctorStore } from '../stores/doctors'
+import { useDoctorStore } from '@/stores/doctors'
 import Doctor from './DoctorsListItem.vue'
 
 const store = useDoctorStore()

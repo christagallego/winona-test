@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useDoctorStore } from '../stores/doctors'
+import { useDoctorStore } from '@/stores/doctors'
 
 const store = useDoctorStore()
 const doctor = store.selectedDoctor ?? null
