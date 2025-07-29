@@ -1,7 +1,11 @@
 import { defineStore } from 'pinia'
 
+interface ThemeState {
+  darkMode: boolean
+}
+
 export const useThemeStore = defineStore('theme', {
-  state: (): { darkMode: boolean } => ({
+  state: (): ThemeState => ({
     darkMode: true // dark mode by default
   }),
   actions: {
