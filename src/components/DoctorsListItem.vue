@@ -1,13 +1,21 @@
 <script setup lang="ts">
-import { RouterLink } from 'vue-router'
+import { useRouter } from 'vue-router'
 import type { Doctor } from '../types/Doctors'
 import { computed } from 'vue'
+import { useDoctorStore } from '../stores/doctors'
 
+const store = useDoctorStore()
+const router = useRouter()
 const props = defineProps<{ doctor: Doctor }>()
 
 const fullName = computed(() => {
   return `Dr. ${props.doctor.firstName} ${props.doctor.lastName}`
 })
+
+const goToDetails = () => {
+  store.selectedDoctor = props.doctor
+  router.push({ name: 'doctor-detail' })
+}
 </script>
 <template>
   <li class="list-row">
@@ -32,7 +40,7 @@ const fullName = computed(() => {
       </button>
       <ul tabindex="0" class="menu dropdown-content z-[1] p-2 shadow bg-base-100 rounded-box w-32">
         <li>
-          <RouterLink :to="{ name: 'doctor-detail' }"> Details </RouterLink>
+          <a @click="goToDetails">Details</a>
         </li>
       </ul>
     </div>
