@@ -29,7 +29,6 @@ export const useDoctorStore = defineStore('doctor', {
         throw err
       } finally {
         this.isLoading = false
-        console.log('Doctors fetched:', this.doctors)
       }
     },
     setSelectedDoctor(doctor: Doctor | null) {
